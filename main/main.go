@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	"port-scanner/port"
+
+	"github.com/denis-mutuma/port-scanner/port"
 )
 
+// the entry point of the program
 func main() {
 	fmt.Println("Scanning Ports")
 	results := port.InitialScan("localhost")

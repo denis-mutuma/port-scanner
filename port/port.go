@@ -6,11 +6,17 @@ import (
 	"time"
 )
 
+// a struct of the scan results
+// Port: port number
+// State: "Open" or "Closed"
 type ScanResult struct {
 	Port  string
 	State string
 }
 
+// a function to scan the ports
+// this function takes the protocol, hostname and port number and
+// returns a ScanResult type
 func ScanPort(protocol, hostname string, port int) ScanResult {
 	result := ScanResult{Port: strconv.Itoa(port) + string("/") + protocol}
 	address := hostname + ":" + strconv.Itoa(port)
@@ -25,6 +31,8 @@ func ScanPort(protocol, hostname string, port int) ScanResult {
 	return result
 }
 
+// this function scans udp and tcp ports for a specified range
+// and returns an array of type ScanResult
 func InitialScan(hostname string) []ScanResult {
 	var results []ScanResult
 
